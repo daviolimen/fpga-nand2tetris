@@ -63,7 +63,9 @@ module CPU (
     assign writeM = isC && instruction[3];
 
     wire jump = isC && (
-        (instruction[0] && (!alu_neg && !alu_zero)) || (instruction[1] && alu_zero) || (instruction[2] && (alu_zero || alu_neg))
+        (instruction[2] && alu_neg)    ||  
+        (instruction[1] && alu_zero)   ||  
+        (instruction[0] && (!alu_neg && !alu_zero)) 
     );
 
     wire loadPC = jump;

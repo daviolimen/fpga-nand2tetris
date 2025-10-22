@@ -1,0 +1,45 @@
+function Sys.init 0
+    push constant 0
+    pop leds 0
+    push constant 0
+    label MAINLOOP
+        call delay 0
+        pop temp 1
+        if-goto TURNON
+        goto TURNOFF
+    
+    label TURNON
+        push constant 15
+        pop leds 0
+        push constant 0
+        goto MAINLOOP
+    
+    label TURNOFF
+        push constant 0
+        pop leds 0
+        push constant 1
+        goto MAINLOOP
+    return
+
+function delay 0
+    push constant 50
+    pop temp 1
+    push constant 1000
+    pop temp 2
+    label LOOP1
+        label LOOP2
+            push temp 2
+            push constant 1
+            sub
+            pop temp 2
+            push temp 2
+            if-goto LOOP2
+        push constant 1000
+        pop temp 2
+        push temp 1
+        push constant 1
+        sub
+        pop temp 1
+        push temp 1
+        if-goto LOOP1
+    return

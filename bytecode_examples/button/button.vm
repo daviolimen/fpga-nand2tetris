@@ -1,0 +1,8 @@
+function Sys.init 0
+    
+    label LOOP
+        push buttons 0
+        push constant 2
+        and
+        pop leds 0
+        goto LOOP
