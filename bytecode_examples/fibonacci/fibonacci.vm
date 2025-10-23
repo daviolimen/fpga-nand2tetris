@@ -1,0 +1,72 @@
+function Sys.init 0
+    push constant 5 
+    call fibonacci 1
+    pop temp 3
+    label LOOP
+        call blinkLed 0
+        push temp 3
+        push constant 1
+        sub
+        pop temp 3
+        push temp 3
+        if-goto LOOP
+        goto END
+    label END
+        goto END
+    return
+
+
+function fibonacci 0
+    push argument 0
+    push constant 2
+    lt
+    if-goto IF_TRUE
+    goto IF_FALSE
+    label IF_TRUE
+    push argument 0
+    return
+    label IF_FALSE
+    push argument 0
+    push constant 2
+    sub
+    call fibonacci 1
+    push argument 0
+    push constant 1
+    sub
+    call fibonacci 1
+    add
+    return
+
+function delay 0
+    push constant 50
+    pop temp 1
+    push constant 1000
+    pop temp 2
+    label LOOP1
+        label LOOP2
+            push temp 2
+            push constant 1
+            sub
+            pop temp 2
+            push temp 2
+            if-goto LOOP2
+        push constant 1000
+        pop temp 2
+        push temp 1
+        push constant 1
+        sub
+        pop temp 1
+        push temp 1
+        if-goto LOOP1
+    return
+
+function blinkLed 0
+    call delay 0
+    pop temp 2
+    push constant 1
+    pop leds 0
+    call delay 0
+    pop temp 2
+    push constant 0
+    pop leds 0
+    return

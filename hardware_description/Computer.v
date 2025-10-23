@@ -15,9 +15,15 @@ module Computer (
     wire reset;
     assign reset = ~pmod[0];
 
-    ROM rom_inst (
-        .address(pc[11:0]),
-        .data(instruction)
+    CPU cpu_inst (
+        .clk(clk),
+        .reset(reset),
+        .inM(inM),
+        .instruction(instruction),
+        .outM(outM),
+        .writeM(writeM),
+        .addressM(addressM),
+        .pc(pc)
     );
 
     Memory mem_inst (
@@ -30,14 +36,10 @@ module Computer (
         .led(led)
     );
 
-    CPU cpu_inst (
+    ROM rom_inst (
         .clk(clk),
-        .reset(reset),
-        .inM(inM),
-        .instruction(instruction),
-        .outM(outM),
-        .writeM(writeM),
-        .addressM(addressM),
-        .pc(pc)
+        .address(pc[11:0]),
+        .data(instruction)
     );
+
 endmodule
