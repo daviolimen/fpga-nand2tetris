@@ -37,7 +37,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 module ROM ( 
     input wire 	       clk,          // system clock
     input wire 	       rstrb,        // read strobe		
-    input wire [23:0]  word_address, // address to be read
+    input wire [15:0]  word_address, // address to be read
 
 		      
     output wire [15:0] rdata, // data read
@@ -83,7 +83,7 @@ module ROM (
       end
    endfunction
 
-   wire [23:0] real_address = 24'h020000 + {word_address[22:0], 1'b0};
+   wire [23:0] real_address = 24'h020000 + {7'b0, word_address[15:0], 1'b0};
 
    always @(posedge clk) begin
       if(rstrb) begin
