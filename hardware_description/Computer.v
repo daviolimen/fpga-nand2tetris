@@ -1,16 +1,27 @@
+`include "CPU.v"
+`include "Memory.v"
+`include "ROM.v"
+
 module Computer (
     input wire clk,
 
     input wire [3:0] pmod,
-    output reg [4:0] led
+    output reg [4:0] led,
+
+    inout spi_mosi,
+    inout spi_miso,
+    output spi_cs_n,
+    output spi_clk
 );
 
-    wire [15:0] instruction;
+    wire [15:0] rom_data;
     wire [15:0] inM;
     wire [15:0] outM;
     wire [15:0] addressM;
     wire writeM;
-    wire [15:0] pc;
+    wire [23:0] pc;
+    wire rbusy;
+    wire rstrb;
 
     wire reset;
     assign reset = ~pmod[0];
@@ -18,12 +29,14 @@ module Computer (
     CPU cpu_inst (
         .clk(clk),
         .reset(reset),
+        .rom_data(rom_data),
+        .rbusy(rbusy),
+        .addrRom(pc),
+        .rstrb(rstrb),
         .inM(inM),
-        .instruction(instruction),
         .outM(outM),
-        .writeM(writeM),
-        .addressM(addressM),
-        .pc(pc)
+        .addrM(addressM),
+        .writeM(writeM)
     );
 
     Memory mem_inst (
@@ -38,8 +51,12 @@ module Computer (
 
     ROM rom_inst (
         .clk(clk),
-        .address(pc[11:0]),
-        .data(instruction)
+        .rstrb(rstrb),
+        .word_address(pc),
+        .rdata(rom_data),
+        .rbusy(rbusy),
+        .CLK(spi_clk),
+        .CS_N(spi_cs_n),
+        .IO({spi_miso, spi_mosi})
     );
-
 endmodule

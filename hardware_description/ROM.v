@@ -1,16 +1,77 @@
-module ROM (
-    input wire clk,
-    input wire [11:0] address,
-    output reg [15:0] data
+// Fast SPI Flash implementation adapted from https://github.com/BrunoLevy/learn-fpga/blob/master/FemtoRV/RTL/DEVICES/MappedSPIFlash.v
+
+`define SPI_FLASH_DUMMY_CLOCKS 8
+
+module ROM ( 
+    input wire 	       clk,          // system clock
+    input wire 	       rstrb,        // read strobe		
+    input wire [23:0]  word_address, // address to be read
+
+		      
+    output wire [15:0] rdata, // data read
+    output wire        rbusy, // asserted if busy receiving data 
+
+    output wire        CLK,  // clock
+    output reg 	       CS_N, // chip select negated (active low)		
+    inout wire [1:0]   IO    // two bidirectional IO pins
 );
 
-    reg [15:0] rom [0:2047];
+   reg [4:0]  clock_cnt; // send/receive clock, 2 bits per clock (dual IO)
+   reg [39:0] shifter;   // used for sending and receiving
 
-    initial begin
-        $readmemh("program.hex", rom);
-    end
+   reg 	      dir; // 1 if sending, 0 otherwise
 
-    always @(posedge clk) begin
-        data <= rom[address];
-    end
+   wire       busy      = (clock_cnt != 0);
+   wire       sending   = (dir  && busy);
+   wire       receiving = (!dir && busy);
+   assign     rbusy     = !CS_N; 
+
+   // The two data pins IO0 (=MOSI) and IO1 (=MISO) used in bidirectional mode.
+   reg IO_oe = 1'b1;
+   wire [1:0] IO_out = shifter[39:38];
+   wire [1:0] IO_in  = IO;
+   assign IO = IO_oe ? IO_out : 2'bZZ;
+   
+   initial CS_N = 1'b1;
+   assign  CLK  = !CS_N && !clk; 
+
+   // since least significant bytes are read first, we need to swizzle...
+   assign rdata={shifter[7:0],shifter[15:8]};
+
+   // Duplicates the bits (used because when sending command, dual IO is
+   // not active yet, and I do not want to have a separate shifter for
+   // the command and for the args...).
+   function [15:0] bbyyttee;
+      input [7:0] x;
+      begin
+	 bbyyttee = {
+	     x[7],x[7],x[6],x[6],x[5],x[5],x[4],x[4],
+	     x[3],x[3],x[2],x[2],x[1],x[1],x[0],x[0]
+	 }; 	 
+      end
+   endfunction
+
+   wire [23:0] real_address = 24'h020000 + {word_address[22:0], 1'b0};
+
+   always @(posedge clk) begin
+      if(rstrb) begin
+	 CS_N  <= 1'b0;
+	 IO_oe <= 1'b1;
+	 dir   <= 1'b1;
+	 shifter <= {bbyyttee(8'hbb), real_address};
+	 clock_cnt <= 5'd20 + `SPI_FLASH_DUMMY_CLOCKS; // cmd: 8 clocks  address: 12 clocks  + dummy clocks
+      end else begin
+	 if(busy) begin
+	    shifter <= {shifter[37:0], (receiving ? IO_in : 2'b11)};
+	    clock_cnt <= clock_cnt - 5'd1;	    
+	    if(dir && clock_cnt == 1) begin
+ 	       clock_cnt <= 5'd8; // 32 bits, 2 bits per clock
+	       IO_oe <= 1'b0;
+	       dir   <= 1'b0;
+	    end 
+	 end else begin
+	    CS_N <= 1'b1;
+	 end
+      end
+   end
 endmodule

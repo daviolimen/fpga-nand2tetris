@@ -1,6 +1,8 @@
 #!/bin/zsh
 source ~/.zshrc
 
+cd /home/davi/repos/fpga-nand2tetris/
+
 if [[ $# -lt 2 ]]; then
     echo "Missing required arguments"
     exit 1

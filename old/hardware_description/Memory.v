@@ -9,7 +9,7 @@ module Memory (
     output reg [4:0] led
 );
 
-    reg [15:0] ram [0:4095];
+    reg [15:0] ram [0:1023];
 
     wire write_ram = load && (address[14] == 1'b0);
     wire write_led = load && (address[14:0] == 15'd16384);

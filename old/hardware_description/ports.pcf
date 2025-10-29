@@ -13,9 +13,3 @@ set_io  -pullup yes pmod[0]         78
 set_io  -pullup yes pmod[1]         79
 set_io  -pullup yes pmod[2]         80
 set_io  -pullup yes pmod[3]         81
-
-# SPI FLASH PINS
-set_io              spi_cs_n        71
-set_io              spi_miso        68
-set_io              spi_mosi        67
-set_io              spi_clk         70
