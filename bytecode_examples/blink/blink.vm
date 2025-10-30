@@ -24,7 +24,7 @@ function Sys.init 0
 function delay 0
     push constant 50
     pop temp 1
-    push constant 1000
+    push constant 200
     pop temp 2
     label LOOP1
         label LOOP2
@@ -34,7 +34,7 @@ function delay 0
             pop temp 2
             push temp 2
             if-goto LOOP2
-        push constant 1000
+        push constant 200
         pop temp 2
         push temp 1
         push constant 1

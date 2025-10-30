@@ -1,3 +1,5 @@
+# this Makefile was adapted from the https://github.com/BrunoLevy/learn-fpga/blob/master/FemtoRV/RTL/DEVICES/MappedSPIFlash.v repository, check it out!
+
 PROJECTNAME=Computer
 PCF_FILE=ports.pcf
 VERILOGS=Computer.v

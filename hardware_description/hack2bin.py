@@ -12,4 +12,4 @@ with open(infile, 'r') as fin, open(outfile, 'wb') as fout:
               if len(line) != 16: continue
               word = int(line, 2)
               # Write as 16-bit big-endian (2 bytes per instruction)
-              fout.write(word.to_bytes(2, byteorder="big"))
+              fout.write(word.to_bytes(2, byteorder="little"))
