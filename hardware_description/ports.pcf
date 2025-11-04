@@ -14,6 +14,11 @@ set_io  -pullup yes pmod[1]         79
 set_io  -pullup yes pmod[2]         80
 set_io  -pullup yes pmod[3]         81
 
+# LED MATRIX PINS
+set_io              ledmtx_DIN      91
+set_io              ledmtx_CS       90
+set_io              ledmtx_CLK      88
+
 # SPI FLASH PINS
 set_io              spi_cs_n        71
 set_io              spi_miso        68

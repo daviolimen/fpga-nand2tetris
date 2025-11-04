@@ -1,0 +1,100 @@
+function Sys.init 0
+    call delay 0
+    pop temp 0
+    call delay 0
+    pop temp 0
+    call delay 0
+    pop temp 0
+    push constant 3840
+    call send_matrix 1
+    pop temp 0
+    push constant 2304
+    call send_matrix 1
+    pop temp 0
+    push constant 2823
+    call send_matrix 1
+    pop temp 0
+    push constant 2567
+    call send_matrix 1
+    pop temp 0
+    push constant 3073
+    call send_matrix 1
+    pop temp 0
+
+    push constant 316
+    call send_matrix 1
+    pop temp 0
+
+    push constant 578
+    call send_matrix 1
+    pop temp 0
+
+    push constant 897
+    call send_matrix 1
+    pop temp 0
+
+    push constant 1153
+    call send_matrix 1
+    pop temp 0
+
+    push constant 1409
+    call send_matrix 1
+    pop temp 0
+
+    push constant 1665
+    call send_matrix 1
+    pop temp 0
+
+    push constant 1858
+    call send_matrix 1
+    pop temp 0
+
+    push constant 2108
+    call send_matrix 1
+    pop temp 0
+
+    label END
+    goto END
+
+function send_matrix 0
+    push constant 16386
+    push argument 0
+    call poke 2
+    return
+
+function peek 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+
+function poke 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    pop this 0
+    push constant 0
+    return
+
+function delay 0
+    push constant 50
+    pop temp 1
+    push constant 50
+    pop temp 2
+    label LOOP1
+        label LOOP2
+            push temp 2
+            push constant 1
+            sub
+            pop temp 2
+            push temp 2
+            if-goto LOOP2
+        push constant 50
+        pop temp 2
+        push temp 1
+        push constant 1
+        sub
+        pop temp 1
+        push temp 1
+        if-goto LOOP1
+    return

@@ -595,8 +595,8 @@ D=M
 @R13
 A=M
 M=D
-// push constant 1000
-@1000
+// push constant 50
+@50
 D=A
 @SP
 A=M
@@ -666,8 +666,8 @@ AM=M-1
 D=M
 @LOOP2
 D;JNE
-// push constant 1000
-@1000
+// push constant 50
+@50
 D=A
 @SP
 A=M

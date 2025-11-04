@@ -4,6 +4,7 @@ module CPU (
 
     input [15:0] rom_data,
     input rbusy,
+    input wbusy,
     output [15:0] addrRom,
     output rstrb,
 
@@ -62,12 +63,14 @@ module CPU (
     localparam FETCH_INSTR_bit     = 0;
     localparam WAIT_INSTR_bit      = 1;
     localparam EXECUTE_bit         = 2;
+    localparam WAIT_DATA_bit       = 3;
 
     localparam FETCH_INSTR     = 1 << FETCH_INSTR_bit;
     localparam WAIT_INSTR      = 1 << WAIT_INSTR_bit;
     localparam EXECUTE         = 1 << EXECUTE_bit;
+    localparam WAIT_DATA       = 1 << WAIT_DATA_bit;
 
-    reg [2:0] state;
+    reg [3:0] state;
 
     assign rstrb = state[FETCH_INSTR_bit];
 
@@ -105,11 +108,15 @@ module CPU (
                     end else begin
                         pc <= pc + 1;
                     end
-                    state <= FETCH_INSTR;
+                    state <= WAIT_DATA;
+                end
+
+                state[WAIT_DATA_bit]: begin
+                    if (!rbusy & !wbusy) state <= FETCH_INSTR;
                 end
 
                 default: begin
-                    state <= FETCH_INSTR;
+                    state <= WAIT_DATA;
                 end
             endcase
         end
