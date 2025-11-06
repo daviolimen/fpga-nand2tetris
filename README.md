@@ -33,11 +33,11 @@ It includes:
 
 Scrolling Text:
 
-<video src="assets/scrolling_text.mp4" width="320" height="240" controls></video>
+![Scrolling Text Gif](assets/scrolling_text.gif)
 
 Pong Game:
 
-<video src="assets/pong_game.mp4" width="320" height="240" controls></video>
+![Pong Game Gif](assets/pong_game.gif)
 
 ---
 
