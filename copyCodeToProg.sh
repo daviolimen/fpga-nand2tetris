@@ -1,5 +1,7 @@
 #!/bin/zsh
-source ~/.zshrc
+
+alias VMTRANSLATOR="$(pwd)/modded_vmtranslator/output/VMTranslator"
+alias HACKASSEMBLER="$(pwd)/hack_assembler/output/HackAssembler"
 
 if [[ $# -lt 2 ]]; then
     echo "Missing required arguments"
