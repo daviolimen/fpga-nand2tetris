@@ -122,8 +122,8 @@ D=M
 @R13
 A=M
 M=D
-// label LOOP
-(LOOP)
+// label Sys.init.LOOP
+(Sys.init.LOOP)
 // call blinkLed 0
 @blinkLed$ret3
 D=A
@@ -215,19 +215,19 @@ A=M
 M=D
 @SP
 M=M+1
-// if-gotoLOOP
+// if-gotoSys.init.LOOP
 @SP
 AM=M-1
 D=M
-@LOOP
+@Sys.init.LOOP
 D;JNE
-// goto END
-@END
+// goto Sys.init.END
+@Sys.init.END
 0;JMP
-// label END
-(END)
-// goto END
-@END
+// label Sys.init.END
+(Sys.init.END)
+// goto Sys.init.END
+@Sys.init.END
 0;JMP
 // return
 @LCL
@@ -306,17 +306,17 @@ D;JLT
 A=M-1
 M=0
 (__COMPARISON_LABEL_0)
-// if-gotoIF_TRUE
+// if-gotofibonacci.IF_TRUE
 @SP
 AM=M-1
 D=M
-@IF_TRUE
+@fibonacci.IF_TRUE
 D;JNE
-// goto IF_FALSE
-@IF_FALSE
+// goto fibonacci.IF_FALSE
+@fibonacci.IF_FALSE
 0;JMP
-// label IF_TRUE
-(IF_TRUE)
+// label fibonacci.IF_TRUE
+(fibonacci.IF_TRUE)
 // push argument 0
 @ARG
 D=M
@@ -371,8 +371,8 @@ M=D
 @14
 A=M
 0;JMP
-// label IF_FALSE
-(IF_FALSE)
+// label fibonacci.IF_FALSE
+(fibonacci.IF_FALSE)
 // push argument 0
 @ARG
 D=M
@@ -614,10 +614,10 @@ D=M
 @R13
 A=M
 M=D
-// label LOOP1
-(LOOP1)
-// label LOOP2
-(LOOP2)
+// label delay.LOOP1
+(delay.LOOP1)
+// label delay.LOOP2
+(delay.LOOP2)
 // push temp 2
 @7
 D=M
@@ -660,11 +660,11 @@ A=M
 M=D
 @SP
 M=M+1
-// if-gotoLOOP2
+// if-gotodelay.LOOP2
 @SP
 AM=M-1
 D=M
-@LOOP2
+@delay.LOOP2
 D;JNE
 // push constant 50
 @50
@@ -727,11 +727,11 @@ A=M
 M=D
 @SP
 M=M+1
-// if-gotoLOOP1
+// if-gotodelay.LOOP1
 @SP
 AM=M-1
 D=M
-@LOOP1
+@delay.LOOP1
 D;JNE
 // return
 @LCL

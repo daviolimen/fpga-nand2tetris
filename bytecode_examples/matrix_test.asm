@@ -1118,10 +1118,10 @@ D=M
 @R13
 A=M
 M=D
-// label END
-(END)
-// goto END
-@END
+// label Sys.init.END
+(Sys.init.END)
+// goto Sys.init.END
+@Sys.init.END
 0;JMP
 // function send_matrix 0
 (send_matrix)
@@ -1455,10 +1455,10 @@ D=M
 @R13
 A=M
 M=D
-// label LOOP1
-(LOOP1)
-// label LOOP2
-(LOOP2)
+// label delay.LOOP1
+(delay.LOOP1)
+// label delay.LOOP2
+(delay.LOOP2)
 // push temp 2
 @7
 D=M
@@ -1501,11 +1501,11 @@ A=M
 M=D
 @SP
 M=M+1
-// if-gotoLOOP2
+// if-gotodelay.LOOP2
 @SP
 AM=M-1
 D=M
-@LOOP2
+@delay.LOOP2
 D;JNE
 // push constant 50
 @50
@@ -1568,11 +1568,11 @@ A=M
 M=D
 @SP
 M=M+1
-// if-gotoLOOP1
+// if-gotodelay.LOOP1
 @SP
 AM=M-1
 D=M
-@LOOP1
+@delay.LOOP1
 D;JNE
 // return
 @LCL

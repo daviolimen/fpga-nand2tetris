@@ -1,0 +1,249 @@
+class Main {
+
+    function void writeMatrix(int command) {
+        do Memory.poke(16386, command);
+        return;
+    }
+
+    function void initMatrix() {
+        do Main.writeMatrix(2567);
+        do Main.writeMatrix(2304);
+        do Main.writeMatrix(2823);
+        do Main.writeMatrix(3073);
+        do Main.writeMatrix(3840);
+        return;
+    }
+
+    function void clearMatrix() {
+        var int skibidi;
+        let skibidi = 0;
+        while (skibidi < 8) {
+            do Main.writeMatrix(256 * (skibidi + 1));
+            let skibidi = skibidi + 1;
+        }
+        return;
+    }
+
+    function void main() {
+        var Array buffer;
+        var Array message;
+        var int i, idx, size;
+        let buffer = Array.new(8);
+        let message = Array.new(200);
+        do Main.initMatrix();
+        do Main.clearMatrix();
+        let message[0] = 0;
+        let message[1] = 0;
+        let message[2] = 0;
+        let message[3] = 0;
+        let message[4] = 0;
+        let message[5] = 0;
+        let message[6] = 0;
+        let message[7] = 0;
+        let message[8] = 0;
+        let message[9] = 0;
+        let message[10] = 0;
+        let message[11] = 0;
+        let message[12] = 127;
+        let message[13] = 8;
+        let message[14] = 8;
+        let message[15] = 8;
+        let message[16] = 127;
+        let message[17] = 0;
+        let message[18] = 56;
+        let message[19] = 84;
+        let message[20] = 84;
+        let message[21] = 84;
+        let message[22] = 24;
+        let message[23] = 0;
+        let message[24] = 0;
+        let message[25] = 65;
+        let message[26] = 127;
+        let message[27] = 64;
+        let message[28] = 0;
+        let message[29] = 0;
+        let message[30] = 0;
+        let message[31] = 65;
+        let message[32] = 127;
+        let message[33] = 64;
+        let message[34] = 0;
+        let message[35] = 0;
+        let message[36] = 56;
+        let message[37] = 68;
+        let message[38] = 68;
+        let message[39] = 68;
+        let message[40] = 56;
+        let message[41] = 0;
+        let message[42] = 0;
+        let message[43] = 80;
+        let message[44] = 48;
+        let message[45] = 0;
+        let message[46] = 0;
+        let message[47] = 0;
+        let message[48] = 0;
+        let message[49] = 0;
+        let message[50] = 0;
+        let message[51] = 0;
+        let message[52] = 0;
+        let message[53] = 0;
+        let message[54] = 124;
+        let message[55] = 8;
+        let message[56] = 4;
+        let message[57] = 4;
+        let message[58] = 120;
+        let message[59] = 0;
+        let message[60] = 32;
+        let message[61] = 84;
+        let message[62] = 84;
+        let message[63] = 84;
+        let message[64] = 120;
+        let message[65] = 0;
+        let message[66] = 124;
+        let message[67] = 8;
+        let message[68] = 4;
+        let message[69] = 4;
+        let message[70] = 120;
+        let message[71] = 0;
+        let message[72] = 56;
+        let message[73] = 68;
+        let message[74] = 68;
+        let message[75] = 72;
+        let message[76] = 127;
+        let message[77] = 0;
+        let message[78] = 66;
+        let message[79] = 97;
+        let message[80] = 81;
+        let message[81] = 73;
+        let message[82] = 70;
+        let message[83] = 0;
+        let message[84] = 4;
+        let message[85] = 63;
+        let message[86] = 68;
+        let message[87] = 64;
+        let message[88] = 32;
+        let message[89] = 0;
+        let message[90] = 56;
+        let message[91] = 84;
+        let message[92] = 84;
+        let message[93] = 84;
+        let message[94] = 24;
+        let message[95] = 0;
+        let message[96] = 4;
+        let message[97] = 63;
+        let message[98] = 68;
+        let message[99] = 64;
+        let message[100] = 32;
+        let message[101] = 0;
+        let message[102] = 124;
+        let message[103] = 8;
+        let message[104] = 4;
+        let message[105] = 4;
+        let message[106] = 8;
+        let message[107] = 0;
+        let message[108] = 0;
+        let message[109] = 68;
+        let message[110] = 125;
+        let message[111] = 64;
+        let message[112] = 0;
+        let message[113] = 0;
+        let message[114] = 72;
+        let message[115] = 84;
+        let message[116] = 84;
+        let message[117] = 84;
+        let message[118] = 32;
+        let message[119] = 0;
+        let message[120] = 0;
+        let message[121] = 0;
+        let message[122] = 0;
+        let message[123] = 0;
+        let message[124] = 0;
+        let message[125] = 0;
+        let message[126] = 60;
+        let message[127] = 64;
+        let message[128] = 48;
+        let message[129] = 64;
+        let message[130] = 60;
+        let message[131] = 0;
+        let message[132] = 56;
+        let message[133] = 68;
+        let message[134] = 68;
+        let message[135] = 68;
+        let message[136] = 56;
+        let message[137] = 0;
+        let message[138] = 124;
+        let message[139] = 8;
+        let message[140] = 4;
+        let message[141] = 4;
+        let message[142] = 8;
+        let message[143] = 0;
+        let message[144] = 0;
+        let message[145] = 65;
+        let message[146] = 127;
+        let message[147] = 64;
+        let message[148] = 0;
+        let message[149] = 0;
+        let message[150] = 56;
+        let message[151] = 68;
+        let message[152] = 68;
+        let message[153] = 72;
+        let message[154] = 127;
+        let message[155] = 0;
+        let message[156] = 0;
+        let message[157] = 0;
+        let message[158] = 79;
+        let message[159] = 0;
+        let message[160] = 0;
+        let message[161] = 0;
+        let message[162] = 0;
+        let message[163] = 0;
+        let message[164] = 79;
+        let message[165] = 0;
+        let message[166] = 0;
+        let message[167] = 0;
+        let message[168] = 0;
+        let message[169] = 0;
+        let message[170] = 0;
+        let message[171] = 0;
+        let message[172] = 0;
+        let message[173] = 0;
+        let message[174] = 0;
+        let message[175] = 0;
+        let message[176] = 0;
+        let message[177] = 0;
+        let message[178] = 0;
+        let message[179] = 0;
+        let message[180] = 255;
+        let message[181] = 255;
+        let message[182] = 255;
+        let message[183] = 255;
+        let message[184] = 255;
+        let message[185] = 0;
+        let size = 186;
+        let buffer[0] = 0;
+        let buffer[1] = 0;
+        let buffer[2] = 0;
+        let buffer[3] = 0;
+        let buffer[4] = 0;
+        let buffer[5] = 0;
+        let buffer[6] = 0;
+        let buffer[7] = 0;
+        while (true) {
+            let idx = 0;
+            while (idx < size) {
+                let i = 0;
+                while (i < 7) {
+                    let buffer[i] = buffer[i + 1];
+                    let i = i + 1;
+                }
+                let buffer[7] = message[idx];
+                let i = 0;
+                while (i < 8) {
+                    do Main.writeMatrix(256 * (i + 1) + buffer[i]);
+                    let i = i + 1;
+                }
+                let idx = idx + 1;
+            }
+        }
+        return;
+    }
+}

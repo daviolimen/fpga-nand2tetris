@@ -13,6 +13,10 @@ elif [[ "$1" == "-b" ]]; then
     cd bytecode_examples/
     VMTRANSLATOR "$2"
     cp "$2.asm" ../hardware_description/prog.asm
+elif [[ "$1" == "-j" ]]; then
+    cd jack_examples/
+    VMTRANSLATOR "$2"
+    cp "$2.asm" ../hardware_description/prog.asm
 fi
 
 cd ../hardware_description

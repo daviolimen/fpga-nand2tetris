@@ -1,0 +1,4 @@
+This folder is just to store the actual .jack programs that were compiled into VM Code on the jack_examples folder.
+
+Note that the folder used to upload the code to the FPGA is the jack_examples, as described in the copyCodeToProg.sh script.
+This folder is just so that you are able to understand what Jack code was used to compile to the VM Code.

@@ -890,8 +890,8 @@ M=D
 @14
 A=M
 0;JMP
-// function Main.main 5
-(Main.main)
+// function Main.wait 1
+(Main.wait)
 @0
 D=A
 @SP
@@ -899,6 +899,169 @@ A=M
 M=D
 @SP
 M=M+1
+// push constant 10000
+@10000
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// pop local 0
+@LCL
+D=M
+@0
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+// label Main.wait.Main_2
+(Main.wait.Main_2)
+// push local 0
+@LCL
+D=M
+@0
+D=D+A
+A=D
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push constant 0
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// gt command
+@SP
+AM=M-1
+D=M
+A=A-1
+D=M-D
+M=-1
+@__COMPARISON_LABEL_1
+D;JGT
+@SP
+A=M-1
+M=0
+(__COMPARISON_LABEL_1)
+// not command
+@SP
+A=M-1
+M=!M
+// if-gotoMain.wait.Main_3
+@SP
+AM=M-1
+D=M
+@Main.wait.Main_3
+D;JNE
+// push local 0
+@LCL
+D=M
+@0
+D=D+A
+A=D
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push constant 1
+@1
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// sub command
+@SP
+AM=M-1
+D=M
+A=A-1
+D=M-D
+M=D
+// pop local 0
+@LCL
+D=M
+@0
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+// goto Main.wait.Main_2
+@Main.wait.Main_2
+0;JMP
+// label Main.wait.Main_3
+(Main.wait.Main_3)
+// push constant 0
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// return
+@LCL
+D=M
+@13
+M=D
+@5
+A=D-A
+D=M
+@14
+M=D
+@SP
+AM=M-1
+D=M
+@ARG
+A=M
+M=D
+D=A
+@SP
+M=D+1
+@13
+AM=M-1
+D=M
+@THAT
+M=D
+@13
+AM=M-1
+D=M
+@THIS
+M=D
+@13
+AM=M-1
+D=M
+@ARG
+M=D
+@13
+AM=M-1
+D=M
+@LCL
+M=D
+@14
+A=M
+0;JMP
+// function Main.main 4
+(Main.main)
 @0
 D=A
 @SP
@@ -997,8 +1160,8 @@ D=M
 @R13
 A=M
 M=D
-// push constant 200
-@200
+// push constant 50
+@50
 D=A
 @SP
 A=M
@@ -1067,68 +1230,8 @@ D=M
 @R13
 A=M
 M=D
-// call Main.initMatrix 0
-@Main.initMatrix$ret12
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@LCL
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@ARG
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THIS
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THAT
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@5
-D=A
-@SP
-D=M-D
-@ARG
-M=D
-@SP
-D=M
-@LCL
-M=D
-@Main.initMatrix
-0;JMP
-(Main.initMatrix$ret12)
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
 // call Main.clearMatrix 0
-@Main.clearMatrix$ret13
+@Main.clearMatrix$ret12
 D=A
 @SP
 A=M
@@ -1175,7 +1278,7 @@ D=M
 M=D
 @Main.clearMatrix
 0;JMP
-(Main.clearMatrix$ret13)
+(Main.clearMatrix$ret12)
 // pop temp 0
 @5
 D=A
@@ -1214,8 +1317,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 127
+@127
 D=A
 @SP
 A=M
@@ -1292,8 +1395,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 8
+@8
 D=A
 @SP
 A=M
@@ -1370,8 +1473,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 8
+@8
 D=A
 @SP
 A=M
@@ -1448,8 +1551,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 8
+@8
 D=A
 @SP
 A=M
@@ -1526,8 +1629,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 127
+@127
 D=A
 @SP
 A=M
@@ -1682,8 +1785,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 56
+@56
 D=A
 @SP
 A=M
@@ -1760,8 +1863,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -1838,8 +1941,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -1916,8 +2019,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -1994,8 +2097,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 24
+@24
 D=A
 @SP
 A=M
@@ -2150,8 +2253,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 127
-@127
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -2228,8 +2331,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 8
-@8
+// push constant 65
+@65
 D=A
 @SP
 A=M
@@ -2306,8 +2409,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 8
-@8
+// push constant 127
+@127
 D=A
 @SP
 A=M
@@ -2384,8 +2487,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 8
-@8
+// push constant 64
+@64
 D=A
 @SP
 A=M
@@ -2462,8 +2565,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 127
-@127
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -2618,8 +2721,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 56
-@56
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -2696,8 +2799,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 65
+@65
 D=A
 @SP
 A=M
@@ -2774,8 +2877,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 127
+@127
 D=A
 @SP
 A=M
@@ -2852,8 +2955,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 64
+@64
 D=A
 @SP
 A=M
@@ -2930,8 +3033,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 24
-@24
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -3086,8 +3189,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 56
+@56
 D=A
 @SP
 A=M
@@ -3164,8 +3267,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 65
-@65
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -3242,8 +3345,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 127
-@127
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -3320,8 +3423,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 64
-@64
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -3398,8 +3501,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 56
+@56
 D=A
 @SP
 A=M
@@ -3632,8 +3735,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 65
-@65
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -3710,8 +3813,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 127
-@127
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -3788,8 +3891,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 64
-@64
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -4022,8 +4125,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 56
-@56
+// push constant 124
+@124
 D=A
 @SP
 A=M
@@ -4100,8 +4203,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 8
+@8
 D=A
 @SP
 A=M
@@ -4178,8 +4281,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -4256,8 +4359,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -4334,8 +4437,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 56
-@56
+// push constant 120
+@120
 D=A
 @SP
 A=M
@@ -4490,8 +4593,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 32
+@32
 D=A
 @SP
 A=M
@@ -4568,8 +4671,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 80
-@80
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -4646,8 +4749,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 48
-@48
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -4724,8 +4827,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -4802,8 +4905,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 120
+@120
 D=A
 @SP
 A=M
@@ -4958,8 +5061,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 124
+@124
 D=A
 @SP
 A=M
@@ -5036,8 +5139,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 8
+@8
 D=A
 @SP
 A=M
@@ -5114,8 +5217,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -5192,8 +5295,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -5270,8 +5373,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 0
-@0
+// push constant 120
+@120
 D=A
 @SP
 A=M
@@ -5426,8 +5529,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 124
-@124
+// push constant 56
+@56
 D=A
 @SP
 A=M
@@ -5504,8 +5607,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 8
-@8
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -5582,8 +5685,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -5660,8 +5763,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 72
+@72
 D=A
 @SP
 A=M
@@ -5738,8 +5841,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 120
-@120
+// push constant 127
+@127
 D=A
 @SP
 A=M
@@ -5894,8 +5997,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 32
-@32
+// push constant 66
+@66
 D=A
 @SP
 A=M
@@ -5972,8 +6075,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 97
+@97
 D=A
 @SP
 A=M
@@ -6050,8 +6153,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 81
+@81
 D=A
 @SP
 A=M
@@ -6128,8 +6231,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 73
+@73
 D=A
 @SP
 A=M
@@ -6206,8 +6309,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 120
-@120
+// push constant 70
+@70
 D=A
 @SP
 A=M
@@ -6362,8 +6465,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 124
-@124
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -6440,8 +6543,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 8
-@8
+// push constant 63
+@63
 D=A
 @SP
 A=M
@@ -6518,8 +6621,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -6596,8 +6699,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 64
+@64
 D=A
 @SP
 A=M
@@ -6674,8 +6777,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 120
-@120
+// push constant 32
+@32
 D=A
 @SP
 A=M
@@ -6908,8 +7011,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -6986,8 +7089,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -7064,8 +7167,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 72
-@72
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -7142,8 +7245,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 127
-@127
+// push constant 24
+@24
 D=A
 @SP
 A=M
@@ -7298,8 +7401,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 66
-@66
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -7376,8 +7479,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 97
-@97
+// push constant 63
+@63
 D=A
 @SP
 A=M
@@ -7454,8 +7557,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 81
-@81
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -7532,8 +7635,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 73
-@73
+// push constant 64
+@64
 D=A
 @SP
 A=M
@@ -7610,8 +7713,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 70
-@70
+// push constant 32
+@32
 D=A
 @SP
 A=M
@@ -7766,8 +7869,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 124
+@124
 D=A
 @SP
 A=M
@@ -7844,8 +7947,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 63
-@63
+// push constant 8
+@8
 D=A
 @SP
 A=M
@@ -7922,8 +8025,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -8000,8 +8103,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 64
-@64
+// push constant 4
+@4
 D=A
 @SP
 A=M
@@ -8078,8 +8181,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 32
-@32
+// push constant 8
+@8
 D=A
 @SP
 A=M
@@ -8234,8 +8337,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 56
-@56
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -8312,8 +8415,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 68
+@68
 D=A
 @SP
 A=M
@@ -8390,8 +8493,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 125
+@125
 D=A
 @SP
 A=M
@@ -8468,8 +8571,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 64
+@64
 D=A
 @SP
 A=M
@@ -8546,8 +8649,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 24
-@24
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -8702,8 +8805,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 72
+@72
 D=A
 @SP
 A=M
@@ -8780,8 +8883,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 63
-@63
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -8858,8 +8961,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -8936,8 +9039,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 64
-@64
+// push constant 84
+@84
 D=A
 @SP
 A=M
@@ -9170,8 +9273,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 124
-@124
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -9248,8 +9351,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 8
-@8
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -9326,8 +9429,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 79
+@79
 D=A
 @SP
 A=M
@@ -9404,8 +9507,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 4
-@4
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -9482,8 +9585,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 8
-@8
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -9716,8 +9819,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 68
-@68
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -9794,8 +9897,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 125
-@125
+// push constant 79
+@79
 D=A
 @SP
 A=M
@@ -9872,8 +9975,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 64
-@64
+// push constant 0
+@0
 D=A
 @SP
 A=M
@@ -10106,8 +10209,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 72
-@72
+// push constant 255
+@255
 D=A
 @SP
 A=M
@@ -10184,8 +10287,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 255
+@255
 D=A
 @SP
 A=M
@@ -10262,8 +10365,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 255
+@255
 D=A
 @SP
 A=M
@@ -10340,8 +10443,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 84
-@84
+// push constant 255
+@255
 D=A
 @SP
 A=M
@@ -10418,8 +10521,8 @@ D=M
 A=A-1
 D=D+M
 M=D
-// push constant 32
-@32
+// push constant 255
+@255
 D=A
 @SP
 A=M
@@ -10538,5175 +10641,6 @@ M=M+1
 @THAT
 D=M
 @0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 120
-@120
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 121
-@121
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 122
-@122
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 123
-@123
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 124
-@124
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 125
-@125
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 126
-@126
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 60
-@60
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 127
-@127
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 64
-@64
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 128
-@128
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 48
-@48
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 129
-@129
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 64
-@64
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 130
-@130
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 60
-@60
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 131
-@131
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 132
-@132
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 56
-@56
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 133
-@133
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 68
-@68
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 134
-@134
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 68
-@68
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 135
-@135
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 68
-@68
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 136
-@136
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 56
-@56
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 137
-@137
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 138
-@138
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 124
-@124
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 139
-@139
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 8
-@8
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 140
-@140
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 4
-@4
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 141
-@141
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 4
-@4
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 142
-@142
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 8
-@8
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 143
-@143
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 144
-@144
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 145
-@145
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 65
-@65
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 146
-@146
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 127
-@127
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 147
-@147
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 64
-@64
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 148
-@148
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 149
-@149
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 150
-@150
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 56
-@56
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 151
-@151
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 68
-@68
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 152
-@152
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 68
-@68
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 153
-@153
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 72
-@72
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 154
-@154
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 127
-@127
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 155
-@155
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 156
-@156
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 157
-@157
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 158
-@158
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 79
-@79
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 159
-@159
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 160
-@160
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 161
-@161
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 162
-@162
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 163
-@163
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 164
-@164
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 79
-@79
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 165
-@165
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 166
-@166
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 167
-@167
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 168
-@168
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 169
-@169
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 170
-@170
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 171
-@171
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 172
-@172
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 173
-@173
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 174
-@174
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 175
-@175
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 176
-@176
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 177
-@177
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 178
-@178
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 179
-@179
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 180
-@180
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 255
-@255
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 181
-@181
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 255
-@255
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 182
-@182
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 255
-@255
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 183
-@183
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 255
-@255
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 184
-@184
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 255
-@255
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 185
-@185
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push local 1
-@LCL
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// add command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=D+M
-M=D
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// pop pointer 1
-@4
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push temp 0
-@5
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop that 0
-@THAT
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 186
-@186
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop local 4
-@LCL
-D=M
-@4
 D=D+A
 @R13
 M=D
@@ -16340,8 +11274,8 @@ D=M
 @R13
 A=M
 M=D
-// label Main.main.Main_2
-(Main.main.Main_2)
+// label Main.main.Main_4
+(Main.main.Main_4)
 // push constant 1
 @1
 D=A
@@ -16358,11 +11292,11 @@ M=-M
 @SP
 A=M-1
 M=!M
-// if-gotoMain.main.Main_3
+// if-gotoMain.main.Main_5
 @SP
 AM=M-1
 D=M
-@Main.main.Main_3
+@Main.main.Main_5
 D;JNE
 // push constant 0
 @0
@@ -16385,8 +11319,8 @@ D=M
 @R13
 A=M
 M=D
-// label Main.main.Main_4
-(Main.main.Main_4)
+// label Main.main.Main_6
+(Main.main.Main_6)
 // push local 3
 @LCL
 D=M
@@ -16399,78 +11333,8 @@ A=M
 M=D
 @SP
 M=M+1
-// push local 4
-@LCL
-D=M
-@4
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// lt command
-@SP
-AM=M-1
-D=M
-A=A-1
-D=M-D
-M=-1
-@__COMPARISON_LABEL_1
-D;JLT
-@SP
-A=M-1
-M=0
-(__COMPARISON_LABEL_1)
-// not command
-@SP
-A=M-1
-M=!M
-// if-gotoMain.main.Main_5
-@SP
-AM=M-1
-D=M
-@Main.main.Main_5
-D;JNE
-// push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// pop local 2
-@LCL
-D=M
-@2
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// label Main.main.Main_6
-(Main.main.Main_6)
-// push local 2
-@LCL
-D=M
-@2
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// push constant 7
-@7
+// push constant 120
+@120
 D=A
 @SP
 A=M
@@ -16499,6 +11363,72 @@ M=!M
 AM=M-1
 D=M
 @Main.main.Main_7
+D;JNE
+// push constant 0
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// pop local 2
+@LCL
+D=M
+@2
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+// label Main.main.Main_8
+(Main.main.Main_8)
+// push local 2
+@LCL
+D=M
+@2
+D=D+A
+A=D
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push constant 7
+@7
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// lt command
+@SP
+AM=M-1
+D=M
+A=A-1
+D=M-D
+M=-1
+@__COMPARISON_LABEL_3
+D;JLT
+@SP
+A=M-1
+M=0
+(__COMPARISON_LABEL_3)
+// not command
+@SP
+A=M-1
+M=!M
+// if-gotoMain.main.Main_9
+@SP
+AM=M-1
+D=M
+@Main.main.Main_9
 D;JNE
 // push local 2
 @LCL
@@ -16683,11 +11613,11 @@ D=M
 @R13
 A=M
 M=D
-// goto Main.main.Main_6
-@Main.main.Main_6
+// goto Main.main.Main_8
+@Main.main.Main_8
 0;JMP
-// label Main.main.Main_7
-(Main.main.Main_7)
+// label Main.main.Main_9
+(Main.main.Main_9)
 // push constant 7
 @7
 D=A
@@ -16833,8 +11763,8 @@ D=M
 @R13
 A=M
 M=D
-// label Main.main.Main_8
-(Main.main.Main_8)
+// label Main.main.Main_10
+(Main.main.Main_10)
 // push local 2
 @LCL
 D=M
@@ -16862,21 +11792,21 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_3
+@__COMPARISON_LABEL_4
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_3)
+(__COMPARISON_LABEL_4)
 // not command
 @SP
 A=M-1
 M=!M
-// if-gotoMain.main.Main_9
+// if-gotoMain.main.Main_11
 @SP
 AM=M-1
 D=M
-@Main.main.Main_9
+@Main.main.Main_11
 D;JNE
 // push constant 256
 @256
@@ -16914,7 +11844,7 @@ A=A-1
 D=D+M
 M=D
 // call Math.multiply 2
-@Math.multiply$ret14
+@Math.multiply$ret13
 D=A
 @SP
 A=M
@@ -16961,7 +11891,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Math.multiply$ret14)
+(Math.multiply$ret13)
 // push local 2
 @LCL
 D=M
@@ -17024,7 +11954,7 @@ A=A-1
 D=D+M
 M=D
 // call Main.writeMatrix 1
-@Main.writeMatrix$ret15
+@Main.writeMatrix$ret14
 D=A
 @SP
 A=M
@@ -17071,7 +12001,7 @@ D=M
 M=D
 @Main.writeMatrix
 0;JMP
-(Main.writeMatrix$ret15)
+(Main.writeMatrix$ret14)
 // pop temp 0
 @5
 D=A
@@ -17123,11 +12053,11 @@ D=M
 @R13
 A=M
 M=D
-// goto Main.main.Main_8
-@Main.main.Main_8
+// goto Main.main.Main_10
+@Main.main.Main_10
 0;JMP
-// label Main.main.Main_9
-(Main.main.Main_9)
+// label Main.main.Main_11
+(Main.main.Main_11)
 // push local 3
 @LCL
 D=M
@@ -17168,16 +12098,16 @@ D=M
 @R13
 A=M
 M=D
+// goto Main.main.Main_6
+@Main.main.Main_6
+0;JMP
+// label Main.main.Main_7
+(Main.main.Main_7)
 // goto Main.main.Main_4
 @Main.main.Main_4
 0;JMP
 // label Main.main.Main_5
 (Main.main.Main_5)
-// goto Main.main.Main_2
-@Main.main.Main_2
-0;JMP
-// label Main.main.Main_3
-(Main.main.Main_3)
 // push constant 0
 @0
 D=A
@@ -17257,12 +12187,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_4
+@__COMPARISON_LABEL_5
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_4)
+(__COMPARISON_LABEL_5)
 // not command
 @SP
 A=M-1
@@ -17287,7 +12217,7 @@ M=D
 @SP
 M=M+1
 // call Sys.error 1
-@Sys.error$ret16
+@Sys.error$ret15
 D=A
 @SP
 A=M
@@ -17334,7 +12264,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Sys.error$ret16)
+(Sys.error$ret15)
 // pop temp 0
 @5
 D=A
@@ -17361,7 +12291,7 @@ M=D
 @SP
 M=M+1
 // call Memory.alloc 1
-@Memory.alloc$ret17
+@Memory.alloc$ret16
 D=A
 @SP
 A=M
@@ -17408,7 +12338,7 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(Memory.alloc$ret17)
+(Memory.alloc$ret16)
 // return
 @LCL
 D=M
@@ -17485,7 +12415,7 @@ M=D
 @SP
 M=M+1
 // call Memory.deAlloc 1
-@Memory.deAlloc$ret18
+@Memory.deAlloc$ret17
 D=A
 @SP
 A=M
@@ -17532,7 +12462,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(Memory.deAlloc$ret18)
+(Memory.deAlloc$ret17)
 // pop temp 0
 @5
 D=A
@@ -18084,12 +13014,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_5
+@__COMPARISON_LABEL_6
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_5)
+(__COMPARISON_LABEL_6)
 // if-gotoMemory.alloc.IF_TRUE0
 @SP
 AM=M-1
@@ -18110,7 +13040,7 @@ M=D
 @SP
 M=M+1
 // call Sys.error 1
-@Sys.error$ret19
+@Sys.error$ret18
 D=A
 @SP
 A=M
@@ -18157,7 +13087,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Sys.error$ret19)
+(Sys.error$ret18)
 // pop temp 0
 @5
 D=A
@@ -18198,12 +13128,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_6
+@__COMPARISON_LABEL_7
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_6)
+(__COMPARISON_LABEL_7)
 // if-gotoMemory.alloc.IF_TRUE1
 @SP
 AM=M-1
@@ -18288,12 +13218,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_7
+@__COMPARISON_LABEL_8
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_7)
+(__COMPARISON_LABEL_8)
 // push constant 0
 @0
 D=A
@@ -18363,12 +13293,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_8
+@__COMPARISON_LABEL_9
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_8)
+(__COMPARISON_LABEL_9)
 // and command
 @SP
 AM=M-1
@@ -18514,12 +13444,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_9
+@__COMPARISON_LABEL_10
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_9)
+(__COMPARISON_LABEL_10)
 // push local 1
 @LCL
 D=M
@@ -18547,12 +13477,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_10
+@__COMPARISON_LABEL_11
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_10)
+(__COMPARISON_LABEL_11)
 // or command
 @SP
 AM=M-1
@@ -18625,12 +13555,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_11
+@__COMPARISON_LABEL_12
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_11)
+(__COMPARISON_LABEL_12)
 // or command
 @SP
 AM=M-1
@@ -18959,12 +13889,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_12
+@__COMPARISON_LABEL_13
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_12)
+(__COMPARISON_LABEL_13)
 // if-gotoMemory.alloc.IF_TRUE3
 @SP
 AM=M-1
@@ -19253,12 +14183,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_13
+@__COMPARISON_LABEL_14
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_13)
+(__COMPARISON_LABEL_14)
 // if-gotoMemory.alloc.IF_TRUE4
 @SP
 AM=M-1
@@ -19279,7 +14209,7 @@ M=D
 @SP
 M=M+1
 // call Sys.error 1
-@Sys.error$ret20
+@Sys.error$ret19
 D=A
 @SP
 A=M
@@ -19326,7 +14256,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Sys.error$ret20)
+(Sys.error$ret19)
 // pop temp 0
 @5
 D=A
@@ -19424,12 +14354,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_14
+@__COMPARISON_LABEL_15
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_14)
+(__COMPARISON_LABEL_15)
 // if-gotoMemory.alloc.IF_TRUE5
 @SP
 AM=M-1
@@ -19698,12 +14628,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_15
+@__COMPARISON_LABEL_16
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_15)
+(__COMPARISON_LABEL_16)
 // if-gotoMemory.alloc.IF_TRUE6
 @SP
 AM=M-1
@@ -20445,12 +15375,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_16
+@__COMPARISON_LABEL_17
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_16)
+(__COMPARISON_LABEL_17)
 // if-gotoMemory.deAlloc.IF_TRUE0
 @SP
 AM=M-1
@@ -20901,12 +15831,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_17
+@__COMPARISON_LABEL_18
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_17)
+(__COMPARISON_LABEL_18)
 // if-gotoMemory.deAlloc.IF_TRUE1
 @SP
 AM=M-1
@@ -21212,6 +16142,74 @@ M=D
 @SP
 M=M+1
 // call Array.new 1
+@Array.new$ret20
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@LCL
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@ARG
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THIS
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THAT
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@6
+D=A
+@SP
+D=M-D
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Array.new
+0;JMP
+(Array.new$ret20)
+// pop static 1
+@Math.1
+D=A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+// push constant 16
+@16
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// call Array.new 1
 @Array.new$ret21
 D=A
 @SP
@@ -21260,74 +16258,6 @@ M=D
 @Array.new
 0;JMP
 (Array.new$ret21)
-// pop static 1
-@Math.1
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push constant 16
-@16
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// call Array.new 1
-@Array.new$ret22
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@LCL
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@ARG
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THIS
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THAT
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@6
-D=A
-@SP
-D=M-D
-@ARG
-M=D
-@SP
-D=M
-@LCL
-M=D
-@Array.new
-0;JMP
-(Array.new$ret22)
 // pop static 0
 @Math.0
 D=A
@@ -21442,12 +16372,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_18
+@__COMPARISON_LABEL_19
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_18)
+(__COMPARISON_LABEL_19)
 // not command
 @SP
 A=M-1
@@ -21789,12 +16719,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_19
+@__COMPARISON_LABEL_20
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_19)
+(__COMPARISON_LABEL_20)
 // if-gotoMath.abs.IF_TRUE0
 @SP
 AM=M-1
@@ -21955,12 +16885,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_20
+@__COMPARISON_LABEL_21
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_20)
+(__COMPARISON_LABEL_21)
 // push argument 1
 @ARG
 D=M
@@ -21988,12 +16918,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_21
+@__COMPARISON_LABEL_22
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_21)
+(__COMPARISON_LABEL_22)
 // and command
 @SP
 AM=M-1
@@ -22028,12 +16958,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_22
+@__COMPARISON_LABEL_23
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_22)
+(__COMPARISON_LABEL_23)
 // push argument 1
 @ARG
 D=M
@@ -22061,12 +16991,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_23
+@__COMPARISON_LABEL_24
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_23)
+(__COMPARISON_LABEL_24)
 // and command
 @SP
 AM=M-1
@@ -22098,6 +17028,80 @@ M=D
 @ARG
 D=M
 @0
+D=D+A
+A=D
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// call Math.abs 1
+@Math.abs$ret22
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@LCL
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@ARG
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THIS
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THAT
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@6
+D=A
+@SP
+D=M-D
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Math.abs
+0;JMP
+(Math.abs$ret22)
+// pop argument 0
+@ARG
+D=M
+@0
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+// push argument 1
+@ARG
+D=M
+@1
 D=D+A
 A=D
 D=M
@@ -22155,80 +17159,6 @@ M=D
 @Math.abs
 0;JMP
 (Math.abs$ret23)
-// pop argument 0
-@ARG
-D=M
-@0
-D=D+A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
-// push argument 1
-@ARG
-D=M
-@1
-D=D+A
-A=D
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// call Math.abs 1
-@Math.abs$ret24
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@LCL
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@ARG
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THIS
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THAT
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@6
-D=A
-@SP
-D=M-D
-@ARG
-M=D
-@SP
-D=M
-@LCL
-M=D
-@Math.abs
-0;JMP
-(Math.abs$ret24)
 // pop argument 1
 @ARG
 D=M
@@ -22273,12 +17203,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_24
+@__COMPARISON_LABEL_25
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_24)
+(__COMPARISON_LABEL_25)
 // if-gotoMath.multiply.IF_TRUE0
 @SP
 AM=M-1
@@ -22430,12 +17360,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_25
+@__COMPARISON_LABEL_26
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_25)
+(__COMPARISON_LABEL_26)
 // not command
 @SP
 A=M-1
@@ -22530,12 +17460,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_26
+@__COMPARISON_LABEL_27
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_26)
+(__COMPARISON_LABEL_27)
 // not command
 @SP
 A=M-1
@@ -22933,12 +17863,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_27
+@__COMPARISON_LABEL_28
 D;JEQ
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_27)
+(__COMPARISON_LABEL_28)
 // if-gotoMath.divide.IF_TRUE0
 @SP
 AM=M-1
@@ -22959,7 +17889,7 @@ M=D
 @SP
 M=M+1
 // call Sys.error 1
-@Sys.error$ret25
+@Sys.error$ret24
 D=A
 @SP
 A=M
@@ -23006,7 +17936,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Sys.error$ret25)
+(Sys.error$ret24)
 // pop temp 0
 @5
 D=A
@@ -23047,12 +17977,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_28
+@__COMPARISON_LABEL_29
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_28)
+(__COMPARISON_LABEL_29)
 // push argument 1
 @ARG
 D=M
@@ -23080,12 +18010,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_29
+@__COMPARISON_LABEL_30
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_29)
+(__COMPARISON_LABEL_30)
 // and command
 @SP
 AM=M-1
@@ -23120,12 +18050,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_30
+@__COMPARISON_LABEL_31
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_30)
+(__COMPARISON_LABEL_31)
 // push argument 1
 @ARG
 D=M
@@ -23153,12 +18083,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_31
+@__COMPARISON_LABEL_32
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_31)
+(__COMPARISON_LABEL_32)
 // and command
 @SP
 AM=M-1
@@ -23222,7 +18152,7 @@ M=D
 @SP
 M=M+1
 // call Math.abs 1
-@Math.abs$ret26
+@Math.abs$ret25
 D=A
 @SP
 A=M
@@ -23269,7 +18199,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Math.abs$ret26)
+(Math.abs$ret25)
 // pop temp 0
 @5
 D=A
@@ -23326,7 +18256,7 @@ M=D
 @SP
 M=M+1
 // call Math.abs 1
-@Math.abs$ret27
+@Math.abs$ret26
 D=A
 @SP
 A=M
@@ -23373,7 +18303,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Math.abs$ret27)
+(Math.abs$ret26)
 // pop argument 0
 @ARG
 D=M
@@ -23416,12 +18346,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_32
+@__COMPARISON_LABEL_33
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_32)
+(__COMPARISON_LABEL_33)
 // push local 3
 @LCL
 D=M
@@ -23607,12 +18537,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_33
+@__COMPARISON_LABEL_34
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_33)
+(__COMPARISON_LABEL_34)
 // pop local 3
 @LCL
 D=M
@@ -23959,12 +18889,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_34
+@__COMPARISON_LABEL_35
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_34)
+(__COMPARISON_LABEL_35)
 // pop local 3
 @LCL
 D=M
@@ -24087,12 +19017,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_35
+@__COMPARISON_LABEL_36
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_35)
+(__COMPARISON_LABEL_36)
 // not command
 @SP
 A=M-1
@@ -24202,12 +19132,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_36
+@__COMPARISON_LABEL_37
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_36)
+(__COMPARISON_LABEL_37)
 // not command
 @SP
 A=M-1
@@ -24599,12 +19529,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_37
+@__COMPARISON_LABEL_38
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_37)
+(__COMPARISON_LABEL_38)
 // if-gotoMath.sqrt.IF_TRUE0
 @SP
 AM=M-1
@@ -24625,7 +19555,7 @@ M=D
 @SP
 M=M+1
 // call Sys.error 1
-@Sys.error$ret28
+@Sys.error$ret27
 D=A
 @SP
 A=M
@@ -24672,7 +19602,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Sys.error$ret28)
+(Sys.error$ret27)
 // pop temp 0
 @5
 D=A
@@ -24740,12 +19670,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_38
+@__COMPARISON_LABEL_39
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_38)
+(__COMPARISON_LABEL_39)
 // not command
 @SP
 A=M-1
@@ -24863,7 +19793,7 @@ M=D
 @SP
 M=M+1
 // call Math.multiply 2
-@Math.multiply$ret29
+@Math.multiply$ret28
 D=A
 @SP
 A=M
@@ -24910,7 +19840,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Math.multiply$ret29)
+(Math.multiply$ret28)
 // pop local 2
 @LCL
 D=M
@@ -24955,12 +19885,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_39
+@__COMPARISON_LABEL_40
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_39)
+(__COMPARISON_LABEL_40)
 // not command
 @SP
 A=M-1
@@ -24992,12 +19922,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_40
+@__COMPARISON_LABEL_41
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_40)
+(__COMPARISON_LABEL_41)
 // not command
 @SP
 A=M-1
@@ -25179,12 +20109,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_41
+@__COMPARISON_LABEL_42
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_41)
+(__COMPARISON_LABEL_42)
 // if-gotoMath.max.IF_TRUE0
 @SP
 AM=M-1
@@ -25310,12 +20240,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_42
+@__COMPARISON_LABEL_43
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_42)
+(__COMPARISON_LABEL_43)
 // if-gotoMath.min.IF_TRUE0
 @SP
 AM=M-1
@@ -25411,7 +20341,7 @@ A=M
 // function Sys.init 0
 (Sys.init)
 // call Memory.init 0
-@Memory.init$ret30
+@Memory.init$ret29
 D=A
 @SP
 A=M
@@ -25458,7 +20388,7 @@ D=M
 M=D
 @Memory.init
 0;JMP
-(Memory.init$ret30)
+(Memory.init$ret29)
 // pop temp 0
 @5
 D=A
@@ -25471,7 +20401,7 @@ D=M
 A=M
 M=D
 // call Math.init 0
-@Math.init$ret31
+@Math.init$ret30
 D=A
 @SP
 A=M
@@ -25518,7 +20448,7 @@ D=M
 M=D
 @Math.init
 0;JMP
-(Math.init$ret31)
+(Math.init$ret30)
 // pop temp 0
 @5
 D=A
@@ -25531,7 +20461,7 @@ D=M
 A=M
 M=D
 // call Main.main 0
-@Main.main$ret32
+@Main.main$ret31
 D=A
 @SP
 A=M
@@ -25578,7 +20508,7 @@ D=M
 M=D
 @Main.main
 0;JMP
-(Main.main$ret32)
+(Main.main$ret31)
 // pop temp 0
 @5
 D=A
@@ -25591,7 +20521,7 @@ D=M
 A=M
 M=D
 // call Sys.halt 0
-@Sys.halt$ret33
+@Sys.halt$ret32
 D=A
 @SP
 A=M
@@ -25638,7 +20568,7 @@ D=M
 M=D
 @Sys.halt
 0;JMP
-(Sys.halt$ret33)
+(Sys.halt$ret32)
 // pop temp 0
 @5
 D=A
@@ -25817,12 +20747,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_43
+@__COMPARISON_LABEL_44
 D;JLT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_43)
+(__COMPARISON_LABEL_44)
 // if-gotoSys.wait.IF_TRUE0
 @SP
 AM=M-1
@@ -25843,7 +20773,7 @@ M=D
 @SP
 M=M+1
 // call Sys.error 1
-@Sys.error$ret34
+@Sys.error$ret33
 D=A
 @SP
 A=M
@@ -25890,7 +20820,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Sys.error$ret34)
+(Sys.error$ret33)
 // pop temp 0
 @5
 D=A
@@ -25933,12 +20863,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_44
+@__COMPARISON_LABEL_45
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_44)
+(__COMPARISON_LABEL_45)
 // not command
 @SP
 A=M-1
@@ -25999,12 +20929,12 @@ D=M
 A=A-1
 D=M-D
 M=-1
-@__COMPARISON_LABEL_45
+@__COMPARISON_LABEL_46
 D;JGT
 @SP
 A=M-1
 M=0
-(__COMPARISON_LABEL_45)
+(__COMPARISON_LABEL_46)
 // not command
 @SP
 A=M-1
@@ -26166,6 +21096,74 @@ M=D
 @SP
 M=M+1
 // call Output.printChar 1
+@Output.printChar$ret34
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@LCL
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@ARG
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THIS
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THAT
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@6
+D=A
+@SP
+D=M-D
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Output.printChar
+0;JMP
+(Output.printChar$ret34)
+// pop temp 0
+@5
+D=A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+// push constant 82
+@82
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// call Output.printChar 1
 @Output.printChar$ret35
 D=A
 @SP
@@ -26293,74 +21291,6 @@ D=M
 @R13
 A=M
 M=D
-// push constant 82
-@82
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-// call Output.printChar 1
-@Output.printChar$ret37
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@LCL
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@ARG
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THIS
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@THAT
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-@6
-D=A
-@SP
-D=M-D
-@ARG
-M=D
-@SP
-D=M
-@LCL
-M=D
-@Output.printChar
-0;JMP
-(Output.printChar$ret37)
-// pop temp 0
-@5
-D=A
-@R13
-M=D
-@SP
-AM=M-1
-D=M
-@R13
-A=M
-M=D
 // push argument 0
 @ARG
 D=M
@@ -26374,7 +21304,7 @@ M=D
 @SP
 M=M+1
 // call Output.printInt 1
-@Output.printInt$ret38
+@Output.printInt$ret37
 D=A
 @SP
 A=M
@@ -26421,7 +21351,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(Output.printInt$ret38)
+(Output.printInt$ret37)
 // pop temp 0
 @5
 D=A
@@ -26434,7 +21364,7 @@ D=M
 A=M
 M=D
 // call Sys.halt 0
-@Sys.halt$ret39
+@Sys.halt$ret38
 D=A
 @SP
 A=M
@@ -26481,7 +21411,7 @@ D=M
 M=D
 @Sys.halt
 0;JMP
-(Sys.halt$ret39)
+(Sys.halt$ret38)
 // pop temp 0
 @5
 D=A

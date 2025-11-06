@@ -1,0 +1,1 @@
+The files on this folder were compiled using the official jack compiler in the Nand2Tetris website and the JackOS libraries for other functionalities
