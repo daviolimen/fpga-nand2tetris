@@ -1,0 +1,208 @@
+class Main {
+
+    static int padx, moveLeft, moveRight, ballx, bally, direction;
+    static Array buffer;
+
+    function void sendMatrix(int addr, int data) {
+        do Main.writeMatrix(addr * 256 + data);
+        return;
+    }
+
+    function void writeMatrix(int command) {
+        do Memory.poke(16386, command);
+        return;
+    }
+
+    function void initMatrix() {
+        do Main.writeMatrix(2567);
+        do Main.writeMatrix(2304);
+        do Main.writeMatrix(2823);
+        do Main.writeMatrix(3073);
+        do Main.writeMatrix(3840);
+        return;
+    }
+
+    function void clearMatrix() {
+        var int skibidi;
+        let skibidi = 0;
+        while (skibidi < 8) {
+            do Main.sendMatrix(skibidi + 1, 0);
+            let skibidi = skibidi + 1;
+        }
+        return;
+    }
+
+    function void writeBuffer() {
+        var int i;
+        let i = 0;
+        while (i < 8) {
+            do Main.sendMatrix(i + 1, buffer[i]);
+            let i = i + 1;
+        }
+        return;
+    }
+
+    function void clearBuffer() {
+        var int i;
+        let i = 0;
+        while (i < 8) {
+            let buffer[i] = 0;
+            let i = i + 1;
+        }
+        return;
+    }
+
+    function void updateBuffer() {
+        var int i;
+        do Main.clearBuffer();
+        let i = padx;
+        while (i < (padx + 3)) {
+            let buffer[i] = 128;
+            let i = i + 1;
+        }
+
+        let buffer[ballx] = buffer[ballx] | bally;
+        return;
+    }
+
+    function void newGame() {
+        do Main.initMatrix();
+        do Main.clearMatrix();
+        let buffer = Memory.alloc(8);
+        let padx = 3;
+        let ballx = 3;
+        let bally = 2;
+        let direction = 3;
+        return;
+    }
+
+    function void getInput() {
+        let moveLeft = Memory.peek(16385) & 4;
+        let moveRight = Memory.peek(16385) & 2;
+        return;
+    }
+
+    function void wait() {
+        var int skibidi;
+        let skibidi = 400;
+        while (skibidi > 0) {
+            let skibidi = skibidi - 1;
+        }
+        return;
+    }
+
+    function void handleCollision() {
+        if (bally = 1) {
+            if (direction = 7) {
+                let direction = 5;
+            }
+            if (direction = 0) {
+                let direction = 4;
+            }
+            if (direction = 1) {
+                let direction = 3;
+            }
+        }
+
+        if (bally = 64) {
+            if (Math.abs(padx + 1 - ballx) > 1) {
+                return;
+            }
+            if (direction = 3) {
+                let direction = 1;
+            }
+            if (direction = 4) {
+                let direction = 0;
+            }
+            if (direction = 5) {
+                let direction = 7;
+            }
+        }
+
+        if (ballx = 7) {
+            if (direction = 1) {
+                let direction = 7;
+            }
+            if (direction = 2) {
+                let direction = 6;
+            }
+            if (direction = 3) {
+                let direction = 5;
+            }
+        }
+
+        if (ballx = 0) {
+            if (direction = 5) {
+                let direction = 3;
+            }
+            if (direction = 6) {
+                let direction = 2;
+            }
+            if (direction = 7) {
+                let direction = 1;
+            }
+        }
+        return;
+    }
+
+    function void loop() {
+        do Main.getInput();
+        if (moveLeft = 0) {
+            let padx = Math.max(0, padx - 1);
+        }
+        if (moveRight = 0) {
+            let padx = Math.min(5, padx + 1);
+        }
+
+        do Main.handleCollision();
+
+        if (bally = 128) {
+            do Main.loseScreen();
+        }
+
+        if ((direction > 2) & (direction < 6)) {
+            let bally = bally * 2;
+        }
+
+        if ((direction < 2) | (direction > 6)) {
+            let bally = bally / 2;
+        }
+
+        if ((direction > 0) & (direction < 4)) {
+            let ballx = ballx + 1;
+        }
+
+        if (direction > 4) {
+            let ballx = ballx - 1;
+        }
+
+        do Main.wait();
+        return;
+    }
+
+    function void loseScreen() {
+        do Main.clearMatrix();
+        do Main.sendMatrix(1, 129);
+        do Main.sendMatrix(2, 66);
+        do Main.sendMatrix(3, 36);
+        do Main.sendMatrix(4, 24);
+        do Main.sendMatrix(5, 24);
+        do Main.sendMatrix(6, 36);
+        do Main.sendMatrix(7, 66);
+        do Main.sendMatrix(8, 129);
+        while (true) {
+
+        }
+        return;
+    }
+
+    function void main() {
+        do Main.newGame();
+        while (true) {
+            do Main.loop();
+            do Main.updateBuffer();
+            do Main.writeBuffer();
+        }
+        return;
+    }
+}

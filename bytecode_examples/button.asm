@@ -54,8 +54,8 @@ M=D
 (Sys.init$ret1)
 // function Sys.init 0
 (Sys.init)
-// label LOOP
-(LOOP)
+// label Sys.init.LOOP
+(Sys.init.LOOP)
 // push buttons 0
 @16385
 D=M
@@ -90,6 +90,6 @@ D=M
 @R13
 A=M
 M=D
-// goto LOOP
-@LOOP
+// goto Sys.init.LOOP
+@Sys.init.LOOP
 0;JMP

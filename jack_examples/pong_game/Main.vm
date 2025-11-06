@@ -1,0 +1,541 @@
+// Compiled Main.jack:
+function Main.sendMatrix 0
+    push argument 0
+    push constant 256
+    call Math.multiply 2
+    push argument 1
+    add
+    call Main.writeMatrix 1
+    pop temp 0
+    push constant 0
+    return
+function Main.writeMatrix 0
+    push constant 16386
+    push argument 0
+    call Memory.poke 2
+    pop temp 0
+    push constant 0
+    return
+function Main.initMatrix 0
+    push constant 2567
+    call Main.writeMatrix 1
+    pop temp 0
+    push constant 2304
+    call Main.writeMatrix 1
+    pop temp 0
+    push constant 2823
+    call Main.writeMatrix 1
+    pop temp 0
+    push constant 3073
+    call Main.writeMatrix 1
+    pop temp 0
+    push constant 3840
+    call Main.writeMatrix 1
+    pop temp 0
+    push constant 0
+    return
+function Main.clearMatrix 1
+    push constant 0
+    pop local 0
+label Main_0
+    push local 0
+    push constant 8
+    lt
+    not
+    if-goto Main_1
+    push local 0
+    push constant 1
+    add
+    push constant 0
+    call Main.sendMatrix 2
+    pop temp 0
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Main_0
+label Main_1
+    push constant 0
+    return
+function Main.writeBuffer 1
+    push constant 0
+    pop local 0
+label Main_2
+    push local 0
+    push constant 8
+    lt
+    not
+    if-goto Main_3
+    push local 0
+    push constant 1
+    add
+    push local 0
+    push static 6
+    add
+    pop pointer 1
+    push that 0
+    call Main.sendMatrix 2
+    pop temp 0
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Main_2
+label Main_3
+    push constant 0
+    return
+function Main.clearBuffer 1
+    push constant 0
+    pop local 0
+label Main_4
+    push local 0
+    push constant 8
+    lt
+    not
+    if-goto Main_5
+    push local 0
+    push static 6
+    add
+    push constant 0
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Main_4
+label Main_5
+    push constant 0
+    return
+function Main.updateBuffer 1
+    call Main.clearBuffer 0
+    pop temp 0
+    push static 0
+    pop local 0
+label Main_6
+    push local 0
+    push static 0
+    push constant 3
+    add
+    lt
+    not
+    if-goto Main_7
+    push local 0
+    push static 6
+    add
+    push constant 128
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Main_6
+label Main_7
+    push static 3
+    push static 6
+    add
+    push static 3
+    push static 6
+    add
+    pop pointer 1
+    push that 0
+    push static 4
+    or
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 0
+    return
+function Main.newGame 0
+    call Main.initMatrix 0
+    pop temp 0
+    call Main.clearMatrix 0
+    pop temp 0
+    push constant 8
+    call Memory.alloc 1
+    pop static 6
+    push constant 3
+    pop static 0
+    push constant 3
+    pop static 3
+    push constant 2
+    pop static 4
+    push constant 3
+    pop static 5
+    push constant 0
+    return
+function Main.getInput 0
+    push constant 16385
+    call Memory.peek 1
+    push constant 4
+    and
+    pop static 1
+    push constant 16385
+    call Memory.peek 1
+    push constant 2
+    and
+    pop static 2
+    push constant 0
+    return
+function Main.wait 1
+    push constant 400
+    pop local 0
+label Main_8
+    push local 0
+    push constant 0
+    gt
+    not
+    if-goto Main_9
+    push local 0
+    push constant 1
+    sub
+    pop local 0
+    goto Main_8
+label Main_9
+    push constant 0
+    return
+function Main.handleCollision 0
+    push static 4
+    push constant 1
+    eq
+    not
+    if-goto Main_11
+    push static 5
+    push constant 7
+    eq
+    not
+    if-goto Main_13
+    push constant 5
+    pop static 5
+    goto Main_12
+label Main_13
+label Main_12
+    push static 5
+    push constant 0
+    eq
+    not
+    if-goto Main_15
+    push constant 4
+    pop static 5
+    goto Main_14
+label Main_15
+label Main_14
+    push static 5
+    push constant 1
+    eq
+    not
+    if-goto Main_17
+    push constant 3
+    pop static 5
+    goto Main_16
+label Main_17
+label Main_16
+    goto Main_10
+label Main_11
+label Main_10
+    push static 4
+    push constant 64
+    eq
+    not
+    if-goto Main_19
+    push static 0
+    push constant 1
+    add
+    push static 3
+    sub
+    call Math.abs 1
+    push constant 1
+    gt
+    not
+    if-goto Main_21
+    push constant 0
+    return
+    goto Main_20
+label Main_21
+label Main_20
+    push static 5
+    push constant 3
+    eq
+    not
+    if-goto Main_23
+    push constant 1
+    pop static 5
+    goto Main_22
+label Main_23
+label Main_22
+    push static 5
+    push constant 4
+    eq
+    not
+    if-goto Main_25
+    push constant 0
+    pop static 5
+    goto Main_24
+label Main_25
+label Main_24
+    push static 5
+    push constant 5
+    eq
+    not
+    if-goto Main_27
+    push constant 7
+    pop static 5
+    goto Main_26
+label Main_27
+label Main_26
+    goto Main_18
+label Main_19
+label Main_18
+    push static 3
+    push constant 7
+    eq
+    not
+    if-goto Main_29
+    push static 5
+    push constant 1
+    eq
+    not
+    if-goto Main_31
+    push constant 7
+    pop static 5
+    goto Main_30
+label Main_31
+label Main_30
+    push static 5
+    push constant 2
+    eq
+    not
+    if-goto Main_33
+    push constant 6
+    pop static 5
+    goto Main_32
+label Main_33
+label Main_32
+    push static 5
+    push constant 3
+    eq
+    not
+    if-goto Main_35
+    push constant 5
+    pop static 5
+    goto Main_34
+label Main_35
+label Main_34
+    goto Main_28
+label Main_29
+label Main_28
+    push static 3
+    push constant 0
+    eq
+    not
+    if-goto Main_37
+    push static 5
+    push constant 5
+    eq
+    not
+    if-goto Main_39
+    push constant 3
+    pop static 5
+    goto Main_38
+label Main_39
+label Main_38
+    push static 5
+    push constant 6
+    eq
+    not
+    if-goto Main_41
+    push constant 2
+    pop static 5
+    goto Main_40
+label Main_41
+label Main_40
+    push static 5
+    push constant 7
+    eq
+    not
+    if-goto Main_43
+    push constant 1
+    pop static 5
+    goto Main_42
+label Main_43
+label Main_42
+    goto Main_36
+label Main_37
+label Main_36
+    push constant 0
+    return
+function Main.loop 0
+    call Main.getInput 0
+    pop temp 0
+    push static 1
+    push constant 0
+    eq
+    not
+    if-goto Main_45
+    push constant 0
+    push static 0
+    push constant 1
+    sub
+    call Math.max 2
+    pop static 0
+    goto Main_44
+label Main_45
+label Main_44
+    push static 2
+    push constant 0
+    eq
+    not
+    if-goto Main_47
+    push constant 5
+    push static 0
+    push constant 1
+    add
+    call Math.min 2
+    pop static 0
+    goto Main_46
+label Main_47
+label Main_46
+    call Main.handleCollision 0
+    pop temp 0
+    push static 4
+    push constant 128
+    eq
+    not
+    if-goto Main_49
+    call Main.loseScreen 0
+    pop temp 0
+    goto Main_48
+label Main_49
+label Main_48
+    push static 5
+    push constant 2
+    gt
+    push static 5
+    push constant 6
+    lt
+    and
+    not
+    if-goto Main_51
+    push static 4
+    push constant 2
+    call Math.multiply 2
+    pop static 4
+    goto Main_50
+label Main_51
+label Main_50
+    push static 5
+    push constant 2
+    lt
+    push static 5
+    push constant 6
+    gt
+    or
+    not
+    if-goto Main_53
+    push static 4
+    push constant 2
+    call Math.divide 2
+    pop static 4
+    goto Main_52
+label Main_53
+label Main_52
+    push static 5
+    push constant 0
+    gt
+    push static 5
+    push constant 4
+    lt
+    and
+    not
+    if-goto Main_55
+    push static 3
+    push constant 1
+    add
+    pop static 3
+    goto Main_54
+label Main_55
+label Main_54
+    push static 5
+    push constant 4
+    gt
+    not
+    if-goto Main_57
+    push static 3
+    push constant 1
+    sub
+    pop static 3
+    goto Main_56
+label Main_57
+label Main_56
+    call Main.wait 0
+    pop temp 0
+    push constant 0
+    return
+function Main.loseScreen 0
+    call Main.clearMatrix 0
+    pop temp 0
+    push constant 1
+    push constant 129
+    call Main.sendMatrix 2
+    pop temp 0
+    push constant 2
+    push constant 66
+    call Main.sendMatrix 2
+    pop temp 0
+    push constant 3
+    push constant 36
+    call Main.sendMatrix 2
+    pop temp 0
+    push constant 4
+    push constant 24
+    call Main.sendMatrix 2
+    pop temp 0
+    push constant 5
+    push constant 24
+    call Main.sendMatrix 2
+    pop temp 0
+    push constant 6
+    push constant 36
+    call Main.sendMatrix 2
+    pop temp 0
+    push constant 7
+    push constant 66
+    call Main.sendMatrix 2
+    pop temp 0
+    push constant 8
+    push constant 129
+    call Main.sendMatrix 2
+    pop temp 0
+label Main_58
+    push constant 1
+    neg
+    not
+    if-goto Main_59
+    goto Main_58
+label Main_59
+    push constant 0
+    return
+function Main.main 0
+    call Main.newGame 0
+    pop temp 0
+label Main_60
+    push constant 1
+    neg
+    not
+    if-goto Main_61
+    call Main.loop 0
+    pop temp 0
+    call Main.updateBuffer 0
+    pop temp 0
+    call Main.writeBuffer 0
+    pop temp 0
+    goto Main_60
+label Main_61
+    push constant 0
+    return
