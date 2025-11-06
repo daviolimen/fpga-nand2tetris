@@ -29,19 +29,19 @@ function Sys.init 0
     call send_matrix 1
     pop temp 0
 
-    push constant 897
+    push constant 941
     call send_matrix 1
     pop temp 0
 
-    push constant 1153
+    push constant 1185
     call send_matrix 1
     pop temp 0
 
-    push constant 1409
+    push constant 1441
     call send_matrix 1
     pop temp 0
 
-    push constant 1665
+    push constant 1709
     call send_matrix 1
     pop temp 0
 

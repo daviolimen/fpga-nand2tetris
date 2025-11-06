@@ -710,8 +710,8 @@ D=M
 @R13
 A=M
 M=D
-// push constant 897
-@897
+// push constant 941
+@941
 D=A
 @SP
 A=M
@@ -778,8 +778,8 @@ D=M
 @R13
 A=M
 M=D
-// push constant 1153
-@1153
+// push constant 1185
+@1185
 D=A
 @SP
 A=M
@@ -846,8 +846,8 @@ D=M
 @R13
 A=M
 M=D
-// push constant 1409
-@1409
+// push constant 1441
+@1441
 D=A
 @SP
 A=M
@@ -914,8 +914,8 @@ D=M
 @R13
 A=M
 M=D
-// push constant 1665
-@1665
+// push constant 1709
+@1709
 D=A
 @SP
 A=M

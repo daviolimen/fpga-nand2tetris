@@ -116,11 +116,12 @@ class Parser {
 class CodeWriter {
     private:
         int labelCnt, callCnt;
-        string name;
+        string name, currentFunction;
     public:
         CodeWriter(const string &fileName) {
             labelCnt = 0;
             callCnt = 0;
+            currentFunction = "";
             setFileName(fileName);
             freopen((name + ".asm").c_str(), "w", stdout);
         }
@@ -192,22 +193,23 @@ class CodeWriter {
         }
 
         void writeLabel(const string &label) {
-            string codeToWrite = "// label " + label + "\n(" + label + ")\n";
+            string codeToWrite = "// label " + currentFunction + "." + label + "\n(" + currentFunction + "." + label + ")\n";
             cout << codeToWrite;
         }
 
         void writeGoto(const string &label) {
-            string codeToWrite = "// goto " + label + "\n@" + label + "\n0;JMP\n";
+            string codeToWrite = "// goto " + currentFunction + "." + label + "\n@" + currentFunction + "." + label + "\n0;JMP\n";
             cout << codeToWrite;
         }
         
         void writeIf(const string &label) {
-            string codeToWrite = "// if-goto" + label + "\n";
-            codeToWrite += "@SP\nAM=M-1\nD=M\n@" + label + "\nD;JNE\n";
+            string codeToWrite = "// if-goto" + currentFunction + "." + label + "\n";
+            codeToWrite += "@SP\nAM=M-1\nD=M\n@" + currentFunction + "." + label + "\nD;JNE\n";
             cout << codeToWrite;
         }
 
         void writeFunction(const string &functionName, int nVars) {
+            currentFunction = functionName;
             string codeToWrite = "// function " + functionName + " " + to_string(nVars) + "\n";
             codeToWrite += "(" + functionName + ")\n";
             for (int i = 0; i < nVars; i++) codeToWrite += "@0\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";

@@ -1,0 +1,30 @@
+// Compiled Main.jack:
+function Main.main 0
+label Main_0
+    push constant 1
+    neg
+    not
+    if-goto Main_1
+    push constant 16385
+    call Memory.peek 1
+    push constant 2
+    and
+    push constant 2
+    eq
+    not
+    if-goto Main_3
+    push constant 16384
+    push constant 7
+    call Memory.poke 2
+    pop temp 0
+    goto Main_2
+label Main_3
+    push constant 16384
+    push constant 0
+    call Memory.poke 2
+    pop temp 0
+label Main_2
+    goto Main_0
+label Main_1
+    push constant 0
+    return
